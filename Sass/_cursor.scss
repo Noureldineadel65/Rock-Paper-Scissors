@@ -1,0 +1,76 @@
+.cursor {
+	width: 5rem;
+	height: 5rem;
+	border: 2px solid white;
+	border-radius: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	z-index: 999;
+	pointer-events: none;
+	// transform-origin: 50% 50%;
+	// overflow: hidden;
+	transition: border 0.4s ease-out, background-color 0.4s ease-out,
+		transform 0.3s ease-out;
+	background-color: transparent;
+	span {
+		border: 3px solid white;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 999;
+		// animation: clicked 0.8s ease-in-out;
+	}
+	span:nth-of-type(1) {
+		width: 7rem;
+		height: 7rem;
+		animation: clickedAnimation-1 0.5s ease-in-out infinite alternate;
+	}
+	span:nth-of-type(2) {
+		width: 9rem;
+		height: 9rem;
+		background-color: #fff;
+		clip-path: circle(20% at 50% 50%);
+		animation: clickedAnimation-2 0.5s ease-in-out infinite alternate;
+	}
+	span:nth-of-type(3) {
+		width: 11rem;
+		height: 11rem;
+		animation: clickedAnimation-1 0.5s ease-in-out infinite alternate;
+	}
+}
+.expand {
+	transform: translate(-50%, -50%) scale(1.4) rotate(360deg);
+	border: 3px solid white;
+	opacity: 0.7;
+	animation: animateCircle 0.5s linear infinite alternate;
+}
+@keyframes clickedAnimation-1 {
+	from {
+		transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+		opacity: 0;
+	}
+	to {
+		transform: translate(-50%, -50%) scale(1) rotate(360deg);
+		opacity: 1;
+	}
+}
+@keyframes clickedAnimation-2 {
+	from {
+		transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+		opacity: 0;
+	}
+	to {
+		transform: translate(-50%, -50%) scale(1) rotate(-360deg);
+		opacity: 1;
+	}
+}
+@keyframes animateCircle {
+	from {
+		transform: translate(-50%, -50%) scale(1.4) rotate(360deg);
+	}
+	to {
+		transform: translate(-50%, -50%) scale(1.6) rotate(360deg);
+	}
+}

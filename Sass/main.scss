@@ -1,0 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	background: radial-gradient(hsl(237, 49%, 15%), hsl(214, 47%, 23%));
+	color: #222;
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 400;
+	font-size: 62.5%;
+	line-height: 1.7;
+	text-rendering: optimizeLegibility;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	height: 100vh;
+	cursor: url("../images/cursor.png"), auto;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+.container {
+	width: 80rem;
+	margin: 0 auto;
+	margin-top: 2rem;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+button {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+	text-align: inherit;
+	border-radius: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+	-webkit-appearance: none;
+}
+li {
+	list-style: none;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+button::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+.btn {
+	color: #fff;
+	border: 1.5px solid #fff;
+	border-radius: 10px;
+	font-size: 2rem;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 2rem;
+	padding: 0.5rem 3rem;
+	cursor: pointer;
+	transition: all 0.4s;
+	&:hover {
+		background-color: #fff;
+		color: hsl(229, 25%, 31%);
+	}
+}
+.scoreboard {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 2rem;
+	border-radius: 20px;
+	border: 2px solid hsl(217, 16%, 45%);
+	.scoreCount {
+		background-color: #fff;
+		font-size: 1.5rem;
+		padding: 2rem 4rem;
+		border-radius: 10px;
+		text-align: center;
+		line-height: 3.5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		p:first-of-type {
+			letter-spacing: 1.5px;
+			color: hsl(229, 64%, 46%);
+			margin-top: -1rem;
+			text-transform: uppercase;
+		}
+		p:last-of-type {
+			font-size: 4.5rem;
+			font-weight: bolder;
+			color: hsl(217, 16%, 45%);
+		}
+	}
+}
+@mixin styleCard($firstGradient, $secondGradient) {
+	box-shadow: 0px 0px 22px 10px $firstGradient;
+	.circle,
+	.circleResult {
+		background: linear-gradient(
+			0deg,
+			$firstGradient 31%,
+			$secondGradient 100%
+		);
+	}
+}
+.icon {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: inset 15px 3px 38px -16px rgba(0, 0, 0, 0.75);
+}
+.circle {
+	width: 12.5rem;
+
+	height: 12.5rem;
+	border-radius: 50%;
+	position: absolute;
+	z-index: -5;
+}
+.scissor {
+	top: -2rem;
+	left: 43.5%;
+	// transform: translateX(-50%);
+	// z-index: 99;
+	z-index: 10;
+	@include styleCard(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+
+.spock {
+	top: 8rem;
+	left: 25%;
+	// transform: translateX(-50%);
+	z-index: 99;
+
+	@include styleCard(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+}
+.lizard {
+	bottom: -4rem;
+	left: 30%;
+	// z-index: 99;
+	z-index: 10;
+
+	@include styleCard(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+}
+.rock {
+	bottom: -4rem;
+	right: 30%;
+
+	// z-index: 99;
+	z-index: 10;
+
+	@include styleCard(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.paper {
+	top: 8rem;
+	right: 25%;
+
+	// z-index: 99;
+	z-index: 10;
+	@include styleCard(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+.game {
+	margin-top: 7rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	.selections {
+		& > * {
+			position: absolute;
+			width: 10rem;
+			height: 10rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			position: absolute;
+			cursor: pointer;
+			transition: all 0.4s;
+		}
+	}
+}
+.down {
+	transform: scale(0.8);
+}
+.rules {
+	position: fixed;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.4s;
+	z-index: 5;
+
+	.content {
+		background-color: #fff;
+		position: relative;
+		padding: 4rem;
+		border-radius: 20px;
+		transition: all 0.4s;
+		#close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 2rem;
+			cursor: pointer;
+		}
+	}
+}
+.rules.closed {
+	background-color: rgba(0, 0, 0, 0);
+	// z-index: -1;
+	visibility: hidden;
+	.content {
+		transform: scale(0);
+	}
+}
+.opened {
+	background-color: rgba(0, 0, 0, 0.74);
+	visibility: visible;
+	.content {
+		transform: scale(1);
+	}
+}
+.result {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, auto);
+	font-size: 2rem;
+	color: #fff;
+	justify-items: center;
+	align-items: center;
+	width: 100rem;
+	margin: 6rem auto;
+	.you-picked {
+		grid-row: 1/2;
+		margin-bottom: 8rem;
+
+		grid-column: 1/2;
+		text-align: center;
+		text-transform: capitalize;
+	}
+	.they-picked {
+		grid-row: 1/2;
+		margin-bottom: 8rem;
+
+		grid-column: 4/5;
+
+		text-align: center;
+		text-transform: capitalize;
+	}
+	.human {
+		grid-row: 2/-1;
+		grid-column: 1/2;
+
+		position: relative;
+		transform: translateX(0rem);
+		div {
+			width: 20rem;
+			height: 20rem;
+			display: flex;
+			cursor: default;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			// position: absolute;
+			cursor: pointer;
+			transition: all 0.4s;
+
+			.circle {
+				width: 25.5rem;
+				height: 25.5rem;
+				border-radius: 50%;
+				// position: absolute;
+				z-index: -5;
+			}
+			.icon {
+				background-color: #fff;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 50%;
+				box-shadow: inset 15px 3px 38px -16px rgba(0, 0, 0, 0.75);
+				img {
+					width: 10rem;
+				}
+			}
+		}
+	}
+	.you {
+		text-transform: uppercase;
+		grid-row: 2/5;
+		grid-column: 2/4;
+		// display: none ;
+		p {
+			font-size: 5rem;
+		}
+		.btn-white {
+			color: #222;
+			background-color: #fff;
+			padding: 0.5rem 2rem;
+			border-radius: 25px;
+			cursor: pointer;
+			transition: all 0.2s;
+			&:active {
+				transform: scale(0.9);
+			}
+		}
+		text-align: center;
+	}
+
+	.computer {
+		grid-row: 2/3;
+		grid-column: 4/5;
+		position: relative;
+		transform: translateX(0rem);
+		div {
+			width: 20rem;
+			height: 20rem;
+			display: flex;
+			cursor: default;
+
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+
+			cursor: pointer;
+			transition: all 0.4s;
+
+			.circle {
+				width: 25.5rem;
+				height: 25.5rem;
+				border-radius: 50%;
+				// position: absolute;
+				z-index: -5;
+			}
+			.icon {
+				background-color: #fff;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 50%;
+				box-shadow: inset 15px 3px 38px -16px rgba(0, 0, 0, 0.75);
+				img {
+					width: 10rem;
+				}
+			}
+		}
+	}
+}
+.computer {
+	div {
+	}
+}
+.human,
+.computer {
+	position: relative;
+	z-index: -9;
+	@import "circle-effect";
+}
+
+.setting {
+	color: #fff;
+	font-size: 4rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin: 2rem;
+	cursor: pointer;
+	transition: all 0.4s;
+	&:hover {
+		transform: rotate(360deg);
+	}
+}
+@import "cursor";
+@import "switch";
+@import "settingsPage";
+
+// 1150
+@import "media";
+.triangle {
+	.scissor {
+		left: 25%;
+	}
+	.paper {
+		top: -2rem;
+		right: 25%;
+	}
+	.rock {
+		bottom: -4rem;
+		left: 43%;
+	}
+}
+.white {
+	.scoreboard {
+		background-color: #fff;
+	}
+	.circle-effect {
+		div {
+			&:nth-of-type(1) {
+				opacity: 0.4;
+			}
+			&:nth-of-type(2) {
+				opacity: 0.5;
+			}
+			&:nth-of-type(3) {
+				opacity: 0.6;
+			}
+		}
+	}
+	.you-picked,
+	.they-picked {
+		color: hsl(237, 49%, 15%);
+		background-color: #fff;
+		padding: 2rem;
+		border-radius: 10px;
+		box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+	}
+	#rules {
+		background-color: #fff;
+		color: hsl(237, 49%, 15%);
+	}
+	#setting {
+		color: hsl(229, 64%, 46%);
+		background-color: #fff;
+		padding: 1rem;
+		border-radius: 50%;
+	}
+}

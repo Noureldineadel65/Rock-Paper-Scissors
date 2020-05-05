@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Rock, Paper, Scissors</title>
+  <link rel="stylesheet" href="./CSS/animate.min.css">
+  <link rel="stylesheet" href="./CSS/style.css">
+  <script src="https://kit.fontawesome.com/8027935937.js" crossorigin="anonymous"></script>
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <script src="./Scripts/setting.js" defer></script>
+  <script src="./Scripts/cursor.js" defer></script>
+  <script src="./Scripts/gameElements.js" defer></script>
+  <script src="./Scripts/index.js" defer></script>
+
+</head>
+
+<body class="white">
+  <div class="cursor"></div>
+
+  <div class="settingPage animated">
+    <i class="fas fa-times" id="exit"></i>
+    <div class="name-label">
+      <div class="label">Name:</div>
+      <input type="text" id="humanInput" class="input-text">
+    </div>
+    <div class="computer-label">
+      <div class="label">Computer:</div>
+      <input type="text" id="computerInput" class="input-text">
+    </div>
+    <p class="select-background">Select Background</p>
+    <div class="backgrounds">
+      <div class="background" data-bg="0"></div>
+      <div class="background" data-bg="1"></div>
+      <div class="background" data-bg="2"></div>
+      <div class="background" data-bg="3"></div>
+      <div class="background" data-bg="4"></div>
+      <div class="background selected-bg"></div>
+
+
+    </div>
+    <div class="choose-difficulty">
+      <div class="choose-label"></div>
+      <p class="active-difficulty" id="basic">Basic</p>
+
+      <p id="advanced">Advanced</p>
+    </div>
+    <button class="apply-changes">Apply Changes</button>
+  </div>
+  <i class="fas fa-cog setting" id="setting"></i>
+  <div class="rules closed">
+    <div class="content">
+      <img src="./images/image-rules-bonus.svg" alt="" class="img-rule">
+      <img src="./images/icon-close.svg" alt="" id="close">
+    </div>
+  </div>
+  <button id="rules" class="btn animated zoomIn">Rules</button>
+  <div class="container">
+    <div class="scoreboard animated bounceInRight">
+      <img src="./images/logo-white.svg" alt="" class="logo-bonus">
+      <div class="scoreCount">
+        <p>Score</p>
+        <p id="score">0</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

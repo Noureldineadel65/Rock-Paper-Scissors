@@ -1,0 +1,268 @@
+.settingPage {
+	background-color: hsl(214, 47%, 23%);
+	// width: 10%;
+	// hsl(237, 49%, 15%)
+	height: 100vh;
+	z-index: 100;
+	font-size: 3rem;
+	color: #fff;
+	padding: 2rem;
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	display: none;
+
+	#exit {
+		font-size: 5rem;
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: 2rem;
+		cursor: pointer;
+	}
+	.name-label,
+	.computer-label {
+		display: flex;
+		align-items: center;
+	}
+	.computer-label {
+		margin: 2rem 0;
+	}
+	input[type="text"] {
+		width: 100%;
+		border: 2px solid hsl(214, 100%, 50%);
+		padding: 2rem;
+		font-size: 2rem;
+		border-radius: 3px;
+		box-shadow: 10px 10px 47px -17px rgba(0, 0, 0, 0.58);
+	}
+	.label {
+		margin-right: 2rem;
+	}
+	.select-background {
+		text-align: center;
+	}
+	.choose-difficulty {
+		display: flex;
+		justify-content: center;
+		transition: all 0.3s;
+		position: relative;
+
+		p {
+			width: 20rem;
+			height: 8rem;
+			display: flex;
+			cursor: pointer;
+			align-items: center;
+			justify-content: center;
+
+			text-decoration: underline;
+			transition: all 0.3s;
+			z-index: 9;
+		}
+		*:hover {
+			opacity: 0.7;
+		}
+	}
+
+	.backgrounds {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+		justify-items: center;
+		align-items: center;
+		.background {
+			width: 10rem;
+			height: 10rem;
+			margin: 4rem 0;
+			background-color: #fff;
+			cursor: pointer;
+			transition: all 0.3s;
+			&:hover {
+				transform: scale(1.1);
+			}
+			&:nth-of-type(1) {
+				background: radial-gradient(
+							circle farthest-side at 0% 50%,
+							#fb1 23.5%,
+							rgba(240, 166, 17, 0) 0
+						)
+						21px 30px,
+					radial-gradient(
+							circle farthest-side at 0% 50%,
+							#b71 24%,
+							rgba(240, 166, 17, 0) 0
+						)
+						19px 30px,
+					linear-gradient(
+							#fb1 14%,
+							rgba(240, 166, 17, 0) 0,
+							rgba(240, 166, 17, 0) 85%,
+							#fb1 0
+						)
+						0 0,
+					linear-gradient(
+							150deg,
+							#fb1 24%,
+							#b71 0,
+							#b71 26%,
+							rgba(240, 166, 17, 0) 0,
+							rgba(240, 166, 17, 0) 74%,
+							#b71 0,
+							#b71 76%,
+							#fb1 0
+						)
+						0 0,
+					linear-gradient(
+							30deg,
+							#fb1 24%,
+							#b71 0,
+							#b71 26%,
+							rgba(240, 166, 17, 0) 0,
+							rgba(240, 166, 17, 0) 74%,
+							#b71 0,
+							#b71 76%,
+							#fb1 0
+						)
+						0 0,
+					linear-gradient(90deg, #b71 2%, #fb1 0, #fb1 98%, #b71 0%) 0
+						0 #fb1;
+				background-size: 40px 60px;
+			}
+			&:nth-of-type(2) {
+				background: radial-gradient(black 15%, transparent 16%) 0 0,
+					radial-gradient(black 15%, transparent 16%) 8px 8px,
+					radial-gradient(
+							rgba(255, 255, 255, 0.1) 15%,
+							transparent 20%
+						)
+						0 1px,
+					radial-gradient(
+							rgba(255, 255, 255, 0.1) 15%,
+							transparent 20%
+						)
+						8px 9px;
+				background-color: #282828;
+				background-size: 16px 16px;
+			}
+			&:nth-of-type(3) {
+				background-color: #556;
+				background-image: linear-gradient(
+						30deg,
+						#445 12%,
+						transparent 12.5%,
+						transparent 87%,
+						#445 87.5%,
+						#445
+					),
+					linear-gradient(
+						150deg,
+						#445 12%,
+						transparent 12.5%,
+						transparent 87%,
+						#445 87.5%,
+						#445
+					),
+					linear-gradient(
+						30deg,
+						#445 12%,
+						transparent 12.5%,
+						transparent 87%,
+						#445 87.5%,
+						#445
+					),
+					linear-gradient(
+						150deg,
+						#445 12%,
+						transparent 12.5%,
+						transparent 87%,
+						#445 87.5%,
+						#445
+					),
+					linear-gradient(
+						60deg,
+						#99a 25%,
+						transparent 25.5%,
+						transparent 75%,
+						#99a 75%,
+						#99a
+					),
+					linear-gradient(
+						60deg,
+						#99a 25%,
+						transparent 25.5%,
+						transparent 75%,
+						#99a 75%,
+						#99a
+					);
+				background-size: 80px 140px;
+				background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0,
+					40px 70px;
+			}
+			&:nth-of-type(4) {
+				background-color: silver;
+				background-image: linear-gradient(
+						335deg,
+						#b00 23px,
+						transparent 23px
+					),
+					linear-gradient(155deg, #d00 23px, transparent 23px),
+					linear-gradient(335deg, #b00 23px, transparent 23px),
+					linear-gradient(155deg, #d00 23px, transparent 23px);
+				background-size: 58px 58px;
+				background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+			}
+			&:nth-of-type(5) {
+				background: linear-gradient(
+						135deg,
+						#708090 21px,
+						#d9ecff 22px,
+						#d9ecff 24px,
+						transparent 24px,
+						transparent 67px,
+						#d9ecff 67px,
+						#d9ecff 69px,
+						transparent 69px
+					),
+					linear-gradient(
+							225deg,
+							#708090 21px,
+							#d9ecff 22px,
+							#d9ecff 24px,
+							transparent 24px,
+							transparent 67px,
+							#d9ecff 67px,
+							#d9ecff 69px,
+							transparent 69px
+						)
+						0 64px;
+				background-color: #708090;
+				background-size: 64px 128px;
+			}
+			&:nth-of-type(6) {
+				background: radial-gradient(
+					hsl(237, 49%, 15%),
+					hsl(214, 47%, 23%)
+				);
+			}
+		}
+	}
+	.selected-bg {
+		border: 3px solid silver;
+	}
+	.apply-changes {
+		background-color: rgb(39, 211, 39);
+		padding: 2rem 4rem;
+		border-radius: 5px;
+		cursor: pointer;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin: 2rem;
+		transition: all 0.3s;
+		&:hover {
+			opacity: 0.8;
+		}
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+}
